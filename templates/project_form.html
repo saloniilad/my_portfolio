@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Developer Portfolio | {% if project %}Edit{% else %}Add{% endif %} Project{% endblock %}
+
+{% block content %}
+<!-- Project Form Header -->
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 animate-on-scroll">
+                <h1 class="display-4 fw-bold mb-4">{% if project %}Edit{% else %}Add{% endif %} Project</h1>
+                <p class="lead">{% if project %}Update the details for {{ project.title }}{% else %}Add a new project to your portfolio{% endif %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form method="POST" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            
+                            <div class="row g-3">
+                                <!-- Title Field -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form.title.label(class="form-label") }}
+                                        {% if form.title.errors %}
+                                            {{ form.title(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.title.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.title(class="form-control") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Description Field -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form.description.label(class="form-label") }}
+                                        {% if form.description.errors %}
+                                            {{ form.description(class="form-control is-invalid", rows=6) }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.description.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.description(class="form-control", rows=6) }}
+                                        {% endif %}
+                                        <small class="form-text text-muted">Describe your project in detail</small>
+                                    </div>
+                                </div>
+                                
+                                <!-- Technologies Field -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form.technologies.label(class="form-label") }}
+                                        {% if form.technologies.errors %}
+                                            {{ form.technologies(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.technologies.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.technologies(class="form-control") }}
+                                        {% endif %}
+                                        <small class="form-text text-muted">Comma-separated list of technologies used (e.g. "Python, Flask, JavaScript")</small>
+                                    </div>
+                                </div>
+                                
+                                <!-- Links -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.github_link.label(class="form-label") }}
+                                        {% if form.github_link.errors %}
+                                            {{ form.github_link(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.github_link.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.github_link(class="form-control") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.demo_link.label(class="form-label") }}
+                                        {% if form.demo_link.errors %}
+                                            {{ form.demo_link(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.demo_link.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.demo_link(class="form-control") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Category and Featured -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.category.label(class="form-label") }}
+                                        {% if form.category.errors %}
+                                            {{ form.category(class="form-select is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.category.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.category(class="form-select") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group mt-4">
+                                        <div class="form-check">
+                                            {{ form.featured(class="form-check-input") }}
+                                            {{ form.featured.label(class="form-check-label") }}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submit Buttons -->
+                                <div class="col-12 d-flex justify-content-between mt-4">
+                                    <a href="{{ url_for('admin') }}" class="btn btn-outline-secondary">
+                                        <i class="fas fa-arrow-left me-2"></i>Cancel
+                                    </a>
+                                    {{ form.submit(class="btn btn-primary") }}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

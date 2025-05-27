@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block title %}Developer Portfolio | About Me{% endblock %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 animate-on-scroll">
+                <h1 class="display-4 fw-bold mb-4">About Me</h1>
+                <p class="lead">Hi, I'm Alex Johnson, a passionate 3rd-year Computer Engineering student with a love for technology and software development.</p>
+            </div>
+            <div class="col-lg-6 animate-on-scroll text-center">
+                <!-- Profile Photo Area -->
+                <div class="profile-photo-container mb-4">
+                    <div class="profile-photo-placeholder rounded-circle mx-auto" style="width: 250px; height: 250px; background-color: var(--bs-secondary); display: flex; align-items: center; justify-content: center; overflow: hidden; border: 5px solid var(--bs-primary);">
+                        <img src="{{ url_for('static', filename='images/profile-photo.svg') }}" alt="Alex Johnson" class="img-fluid rounded-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bio Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto animate-on-scroll">
+                <h2 class="display-6 fw-bold mb-4">My Journey</h2>
+                <p class="mb-4">I started my coding journey during my first year of engineering. What began as coursework quickly turned into a passion, and now I spend much of my free time working on personal projects. I love the problem-solving aspect of programming and the satisfaction of creating solutions that can make a difference.</p>
+                <p class="mb-4">As a Computer Engineering student, I'm developing a strong foundation in both hardware and software. I believe in creating applications that are not only functionally robust but also user-friendly and accessible to everyone.</p>
+                <p>I'm currently focusing on web development and machine learning, with growing skills in both frontend and backend technologies. I enjoy participating in hackathons and student projects that push me to learn new skills and collaborate with other passionate students.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center animate-on-scroll">
+                <h2 class="display-6 fw-bold mb-4">Experience</h2>
+                <p class="lead">My academic and professional journey so far</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Experience Timeline -->
+                <div class="timeline staggered-animation">
+                    <!-- Job 1 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4">Software Development Intern</h3>
+                                <h4 class="h6 text-muted mb-3">TechSolutions Inc. | Summer 2024</h4>
+                                <p>Assisted in the development of web applications, working closely with senior developers. Implemented new features, fixed bugs, and gained hands-on experience with industry standard tools and practices.</p>
+                                <div class="mt-3">
+                                    <span class="badge bg-secondary me-1">React</span>
+                                    <span class="badge bg-secondary me-1">Python</span>
+                                    <span class="badge bg-secondary me-1">Git</span>
+                                    <span class="badge bg-secondary me-1">Agile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job 2 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4">Research Assistant</h3>
+                                <h4 class="h6 text-muted mb-3">University AI Lab | 2023 - Present</h4>
+                                <p>Working with professors on machine learning research projects. Implementing algorithms, analyzing data, and contributing to academic papers. Focus on computer vision applications for autonomous systems.</p>
+                                <div class="mt-3">
+                                    <span class="badge bg-secondary me-1">Python</span>
+                                    <span class="badge bg-secondary me-1">TensorFlow</span>
+                                    <span class="badge bg-secondary me-1">Data Analysis</span>
+                                    <span class="badge bg-secondary me-1">Research</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job 3 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4">Student Web Developer</h3>
+                                <h4 class="h6 text-muted mb-3">University Tech Club | 2022 - Present</h4>
+                                <p>Building and maintaining the university tech club website and various project sites. Collaborating with other students on hackathon projects and workshops. Leading web development workshops for first-year students.</p>
+                                <div class="mt-3">
+                                    <span class="badge bg-secondary me-1">HTML5</span>
+                                    <span class="badge bg-secondary me-1">CSS3</span>
+                                    <span class="badge bg-secondary me-1">JavaScript</span>
+                                    <span class="badge bg-secondary me-1">Flask</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center animate-on-scroll">
+                <h2 class="display-6 fw-bold mb-4">Education</h2>
+                <p class="lead">My academic background and continuous learning</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="timeline staggered-animation">
+                    <!-- Education 1 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4">Master of Computer Science</h3>
+                                <h4 class="h6 text-muted mb-3">University of Technology | 2014 - 2016</h4>
+                                <p>Specialized in Web Technologies and Software Engineering. Thesis on "Optimizing Performance in Modern Web Applications".</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Education 2 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4">Bachelor of Science in Computer Science</h3>
+                                <h4 class="h6 text-muted mb-3">Tech State University | 2010 - 2014</h4>
+                                <p>Graduated with honors. Participated in multiple hackathons and coding competitions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Certifications -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4">Professional Certifications</h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item bg-transparent">AWS Certified Developer Associate</li>
+                                    <li class="list-group-item bg-transparent">Google Professional Cloud Developer</li>
+                                    <li class="list-group-item bg-transparent">MongoDB Certified Developer</li>
+                                    <li class="list-group-item bg-transparent">React Certification - Meta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Personal Interests -->
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center animate-on-scroll">
+                <h2 class="display-6 fw-bold mb-4">When I'm Not Coding</h2>
+                <p class="lead">A glimpse into my personal interests</p>
+            </div>
+        </div>
+        
+        <div class="row g-4 staggered-animation">
+            <!-- Interest 1 -->
+            <div class="col-md-4 animate-on-scroll">
+                <div class="card bg-dark border-light">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mountain fa-3x text-primary mb-3"></i>
+                        <h3 class="h5">Hiking & Outdoors</h3>
+                        <p>I love exploring nature and hiking trails, which helps me clear my mind and find inspiration.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interest 2 -->
+            <div class="col-md-4 animate-on-scroll">
+                <div class="card bg-dark border-light">
+                    <div class="card-body text-center">
+                        <i class="fas fa-book fa-3x text-primary mb-3"></i>
+                        <h3 class="h5">Reading</h3>
+                        <p>I'm an avid reader of tech books, science fiction, and philosophy. Always exploring new ideas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interest 3 -->
+            <div class="col-md-4 animate-on-scroll">
+                <div class="card bg-dark border-light">
+                    <div class="card-body text-center">
+                        <i class="fas fa-gamepad fa-3x text-primary mb-3"></i>
+                        <h3 class="h5">Game Development</h3>
+                        <p>In my free time, I enjoy creating small indie games and exploring game development technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download Resume -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center animate-on-scroll">
+                <h2 class="display-6 fw-bold mb-4">Want to know more?</h2>
+                <p class="lead mb-4">Download my full resume or get in touch with me directly.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#" class="btn btn-primary btn-lg resume-btn">
+                        <i class="fas fa-download me-2"></i>Download Resume
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

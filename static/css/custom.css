@@ -1,0 +1,153 @@
+/* Custom CSS - minimal overrides as per guidelines */
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for lists */
+.staggered-animation > *:nth-child(1) { transition-delay: 0.1s; }
+.staggered-animation > *:nth-child(2) { transition-delay: 0.2s; }
+.staggered-animation > *:nth-child(3) { transition-delay: 0.3s; }
+.staggered-animation > *:nth-child(4) { transition-delay: 0.4s; }
+.staggered-animation > *:nth-child(5) { transition-delay: 0.5s; }
+.staggered-animation > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Hero section */
+.hero-section {
+    min-height: calc(100vh - 76px);
+    display: flex;
+    align-items: center;
+}
+
+/* Skills badges */
+.skill-badge {
+    transition: transform 0.3s ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-5px);
+}
+
+/* Project cards */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-primary);
+}
+
+/* Social icons */
+.social-icon {
+    transition: transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+/* Resume button animation */
+.resume-btn {
+    transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Loading animation for forms */
+.spinner-border {
+    margin-right: 8px;
+}
+
+/* Timeline styling for experience */
+.timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--bs-primary);
+}
+
+.timeline-item:after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: var(--bs-primary);
+}
+
+/* Footer styling */
+.footer {
+    padding: 2rem 0;
+}
+
+/* Add more height to textareas */
+textarea.form-control {
+    min-height: 150px;
+}
+
+/* Profile photo styling */
+.profile-photo-container {
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo-container:hover {
+    transform: scale(1.02);
+}
+
+.profile-photo-placeholder {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-photo-placeholder:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}

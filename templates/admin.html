@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Developer Portfolio | Admin{% endblock %}
+
+{% block content %}
+<!-- Admin Header -->
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 animate-on-scroll">
+                <h1 class="display-4 fw-bold mb-4">Admin Dashboard</h1>
+                <p class="lead">View and manage contact submissions and projects</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Submissions -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold mb-4">Contact Submissions</h2>
+                
+                {% if contact_submissions %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for submission in contact_submissions %}
+                            <tr>
+                                <td>{{ submission.id }}</td>
+                                <td>{{ submission.name }}</td>
+                                <td>{{ submission.email }}</td>
+                                <td>{{ submission.subject }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#messageModal{{ submission.id }}">
+                                        View Message
+                                    </button>
+                                </td>
+                                <td>{{ submission.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                            </tr>
+                            
+                            <!-- Message Modal -->
+                            <div class="modal fade" id="messageModal{{ submission.id }}" tabindex="-1" aria-labelledby="messageModalLabel{{ submission.id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="messageModalLabel{{ submission.id }}">Message from {{ submission.name }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><strong>Subject:</strong> {{ submission.subject }}</p>
+                                            <p><strong>Email:</strong> {{ submission.email }}</p>
+                                            <p><strong>Date:</strong> {{ submission.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+                                            <hr>
+                                            <p>{{ submission.message }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    No contact submissions yet.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Management -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="display-6 fw-bold mb-4">Projects</h2>
+                <p>
+                    <a href="{{ url_for('add_project') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Add New Project
+                    </a>
+                </p>
+                
+                {% if projects %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Featured</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for project in projects %}
+                            <tr>
+                                <td>{{ project.id }}</td>
+                                <td>{{ project.title }}</td>
+                                <td>{{ project.category }}</td>
+                                <td>{% if project.featured %}<i class="fas fa-star text-warning"></i>{% else %}<i class="far fa-star"></i>{% endif %}</td>
+                                <td>
+                                    <a href="{{ url_for('edit_project', project_id=project.id) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    No projects in the database yet.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

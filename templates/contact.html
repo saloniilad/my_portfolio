@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}Developer Portfolio | Contact Me{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 animate-on-scroll">
+                <h1 class="display-4 fw-bold mb-4">Get In Touch</h1>
+                <p class="lead">Have a question or want to work together? Feel free to reach out!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information & Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Information -->
+            <div class="col-lg-4 animate-on-scroll">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <h2 class="h3 mb-4">Contact Information</h2>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="me-3">
+                                <i class="fas fa-envelope text-primary fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 mb-1">Email</h3>
+                                <p class="mb-0"><a href="mailto:salonilad23@gmail.com" class="text-decoration-none">salonilad23@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="me-3">
+                                <i class="fas fa-map-marker-alt text-primary fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 mb-1">Location</h3>
+                                <p class="mb-0">Mumbai, Maharashtra, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="me-3">
+                                <i class="fas fa-phone text-primary fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 mb-1">Phone</h3>
+                                <p class="mb-0"><a href="tel:+917718001807" class="text-decoration-none">+917718001807</a></p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="h5 mb-3 mt-5">Connect with me</h3>
+                        <div class="d-flex">
+                            <a href="https://github.com/" target="_blank" class="social-icon btn btn-outline-primary me-2">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/" target="_blank" class="social-icon btn btn-outline-primary me-2">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="social-icon btn btn-outline-primary me-2">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/" target="_blank" class="social-icon btn btn-outline-primary me-2">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-8 animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5">
+                        <h2 class="h3 mb-4">Send Me a Message</h2>
+                        
+                        <form id="contact-form" method="POST" action="{{ url_for('contact') }}">
+                            {{ form.hidden_tag() }}
+                            
+                            <div class="row g-3">
+                                <!-- Name Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.name.label(class="form-label") }}
+                                        {% if form.name.errors %}
+                                            {{ form.name(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.name.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.name(class="form-control", placeholder="Your name") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Email Field -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{ form.email.label(class="form-label") }}
+                                        {% if form.email.errors %}
+                                            {{ form.email(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.email.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.email(class="form-control", placeholder="Your email") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Subject Field -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form.subject.label(class="form-label") }}
+                                        {% if form.subject.errors %}
+                                            {{ form.subject(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.subject.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.subject(class="form-control", placeholder="What is this regarding?") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Message Field -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{ form.message.label(class="form-label") }}
+                                        {% if form.message.errors %}
+                                            {{ form.message(class="form-control is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.message.errors %}
+                                                    {{ error }}
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {{ form.message(class="form-control", placeholder="Your message", rows="6") }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <div class="col-12 mt-4">
+                                    {{ form.submit(class="btn btn-primary btn-lg px-5") }}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center animate-on-scroll">
+                <h2 class="display-6 fw-bold mb-4">Frequently Asked Questions</h2>
+                <p class="lead">Answers to some common questions</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 animate-on-scroll">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                What services do you offer?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I offer a range of web development services including full-stack web application development, responsive website design, e-commerce solutions, API development and integration, performance optimization, and technical consultation.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                What is your typical project timeline?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while more complex web applications can take 2-6 months. I'll provide a detailed timeline estimate after understanding your specific requirements.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                Do you offer ongoing maintenance and support?
+                            </button>
+                        </h3>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, I offer ongoing maintenance and support packages for all projects I develop. This includes regular updates, security patches, performance monitoring, and technical support. We can discuss a maintenance plan that suits your needs.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                How do you handle project communication?
+                            </button>
+                        </h3>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I maintain regular communication throughout the project via email, video calls, and project management tools. You'll receive weekly progress updates and have access to development milestones. I believe clear communication is key to a successful project.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item border-0 shadow-sm">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                Are you available for remote work?
+                            </button>
+                        </h3>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, I work remotely with clients from around the world. I'm comfortable with different time zones and can adapt to your schedule for meetings and communication.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
